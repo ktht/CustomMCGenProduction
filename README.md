@@ -10,7 +10,7 @@ cmsenv
 
 Clone this repository:
 ```bash
-git clone https://github.com/ktht/CustomMCProduction Configuration/CustomCards
+git clone https://github.com/ktht/CustomMCGenProduction Configuration/CustomCards
 scram b -j8
 ```
 
