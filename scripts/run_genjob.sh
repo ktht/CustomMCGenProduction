@@ -33,7 +33,7 @@ mkdir -p $TMP_DIR
 cd $TMP_DIR
 
 cmsDriver.py $FRAGMENT_PART --fileout file:$OUT_FILE --mc --eventcontent RAWSIM,LHE --datatier GEN,LHE \
-  --conditions auto:mc --step LHE,GEN --no_exec --python_filename=$PY_CFG --number=$NOF_EVENTS --nThreads=1 \
+  --conditions auto:mc --step LHE,GEN --no_exec --python_filename=$PY_CFG --number=$NOF_EVENTS \
   --customise_commands "process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=$IDX; process.RandomNumberGeneratorService.generator.initialSeed=$IDX"
 
 /usr/bin/time --verbose cmsRun $PY_CFG
