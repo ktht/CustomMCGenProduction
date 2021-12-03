@@ -28,5 +28,5 @@ scram b -j8
 
 Make sure to download the gridpacks yourself:
 ```bash
-download_gridpacks.sh
+download_gridpacks.sh YOUR_CERN_USERNAME
 ```

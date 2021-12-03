@@ -7,7 +7,7 @@ import os
 # https://github.com/cms-sw/genproductions/blob/2e8edbb4c940bf3eea6c3f7af51727a6eb545d8a/python/ThirteenTeV/Higgs/HH/ResonanceDecayFilter_example_HHTo2B2L2Nu_madgraph_pythia8_cff.py
 
 externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
-    args = cms.vstring(os.path.join(os.environ['CMSSW_BASE'], 'GF_HH_node_SM_tarball.tar.xz')),
+    args = cms.vstring(os.path.join(os.environ['CMSSW_BASE'], 'src', 'GF_HH_node_SM_tarball.tar.xz')),
     nEvents = cms.untracked.uint32(5000),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
