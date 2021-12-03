@@ -14,10 +14,10 @@ fi
 
 for cfg in ttbarDL_orig ttbarDL_decayAll hhDL_orig hhDL_decayAll; do
   logdir=/home/karl/CustomProduction/$cfg/logs;
-  mkdir -p $logdir;
+  mkdir -pv $logdir;
   for i in `seq $IDX1 $IDX2`; do
     sbatch --partition=main --output=$logdir/out_$i.log \
       $HOME/CMSSW_7_1_26/src/Configuration/CustomCards/scripts/job_wrapper.sh \
-      $i fragment_$cfg.py $NOF_EVENTS /hdfs/local/karl/CustomProduction/$cfg;
+      $i $cfg $NOF_EVENTS /hdfs/local/karl/CustomProduction/$cfg;
   done
 done
