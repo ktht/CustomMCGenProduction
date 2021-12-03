@@ -30,5 +30,5 @@ if [ $NOF_GRIDPACKS -gt 1 ]; then
 fi
 
 if [ $NOF_GRIDPACKS -gt 0 ]; then
-  echo "scp -4 $CERN_USERNAME@lxplus.cern.ch:$TO_DOWNLOAD .";
+  scp -4 $CERN_USERNAME@lxplus.cern.ch:$TO_DOWNLOAD .;
 fi
