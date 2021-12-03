@@ -1,17 +1,31 @@
 ## Instructions
 
-Set up your CMSSW:
+Start singularity:
 ```bash
-source /cvmfs/cms.cern.ch/cmsset_default.sh
-#TBD: cmsrel #
-cd $_/src
-cmsenv 
+singularity exec --home $HOME:/home/$USER --bind /cvmfs --bind /hdfs \
+   --bind /home --bind /scratch --pwd /home/$USER --contain --ipc --pid \
+  /cvmfs/singularity.opensciencegrid.org/kreczko/workernode:centos6 bash
 ```
 
-Clone this repository:
+In singularity, set up your CMSSW:
 ```bash
-git clone https://github.com/ktht/CustomMCGenProduction Configuration/CustomCards
+source /cvmfs/cms.cern.ch/cmsset_default.sh
+cmsrel CMSSW_7_1_26
+cd $_/src
+cmsenv
+```
+
+Clone this repository (unfortunately, git doesn't work in this image):
+```bash
+rm -rf Configuration/CustomCards
+mkdir -p Configuration
+unzip main.zip
+mv CustomMCGenProduction-main Configuration/CustomCards
+rm main.zip
 scram b -j8
 ```
 
-Make sure to download the gridpacks yourself!
+Make sure to download the gridpacks yourself:
+```bash
+download_gridpacks.sh
+```

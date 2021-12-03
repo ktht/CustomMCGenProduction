@@ -1,13 +1,13 @@
 import FWCore.ParameterSet.Config as cms
+import os
 
 # link to cards:
 # https://github.com/cms-sw/genproductions/tree/dac0b0a9a49aeaddc656529d275e5d426effce44/bin/MadGraph5_aMCatNLO/cards/production/13TeV/NonRes_hh/GF_HH_node_SM
 # decay fragment from example:
 # https://github.com/cms-sw/genproductions/blob/2e8edbb4c940bf3eea6c3f7af51727a6eb545d8a/python/ThirteenTeV/Higgs/HH/ResonanceDecayFilter_example_HHTo2B2L2Nu_madgraph_pythia8_cff.py
 
-
 externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
-    args = cms.vstring('/home/karl/CMSSW_10_6_24/src/GF_HH_node_SM_tarball.tar.xz'),
+    args = cms.vstring(os.path.join(os.environ['CMSSW_BASE'], 'GF_HH_node_SM_tarball.tar.xz')),
     nEvents = cms.untracked.uint32(5000),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
