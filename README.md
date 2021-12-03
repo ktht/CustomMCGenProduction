@@ -19,6 +19,7 @@ Clone this repository (unfortunately, git doesn't work in this image):
 ```bash
 rm -rf Configuration/CustomCards
 mkdir -p Configuration
+wget https://github.com/ktht/CustomMCGenProduction/archive/refs/heads/main.zip
 unzip main.zip
 mv CustomMCGenProduction-main Configuration/CustomCards
 rm main.zip
