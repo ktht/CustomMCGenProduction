@@ -30,3 +30,11 @@ Make sure to download the gridpacks yourself:
 ```bash
 download_gridpacks.sh YOUR_CERN_USERNAME
 ```
+
+To submit jobs to the cluster, run
+```bash
+submit_jobs.sh
+```
+**outside** of the singularity session.
+Make sure to have a clean environment before sending the jobs to the cluster.
+If you want to run individual jobs locally, you can do that in the singularity session.
