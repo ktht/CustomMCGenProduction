@@ -5,6 +5,8 @@
 #
 # For some reason only the full path to the script works
 
+echo "Running on $HOSTNAME"
+
 singularity run --home $HOME:/home/$USER --bind /cvmfs --bind /hdfs \
    --bind /home --bind /scratch --pwd /home/$USER --contain --ipc --pid \
   /cvmfs/singularity.opensciencegrid.org/kreczko/workernode:centos6 $HOME/CMSSW_7_1_26/src/Configuration/CustomCards/scripts/run_job.sh $1 $2 $3

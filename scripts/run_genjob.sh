@@ -37,8 +37,12 @@ cmsDriver.py $FRAGMENT_PART --fileout file:$OUT_FILE --mc --eventcontent RAWSIM,
   --customise_commands "process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=$IDX; process.RandomNumberGeneratorService.generator.initialSeed=$IDX"
 
 /usr/bin/time --verbose cmsRun $PY_CFG
-cp $OUT_FILE $OUTPUT_DIR
-sleep 10
+EXIT_CODE=$?
+
+if [ $EXIT_CODE = "0" ]; then
+  cp -v $OUT_FILE $OUTPUT_DIR
+  sleep 10
+fi
 
 cd $CMSSW_BASE/src
 rm -rfv $TMP_DIR
